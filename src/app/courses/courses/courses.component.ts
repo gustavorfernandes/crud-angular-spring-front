@@ -11,10 +11,10 @@ import { CoursesService } from '../services/courses.service';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent {
-  courses: Observable<Course[]>;
+  courses$: Observable<Course[]>;
 
   constructor(private courserService: CoursesService) {
-    this.courses = this.courserService.findAll();
+    this.courses$ = this.courserService.findAll();
   }
 
   displayedColumns = ['name', 'category'];

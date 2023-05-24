@@ -7,6 +7,7 @@ import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
 
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -18,7 +19,9 @@ export class CoursesComponent {
 
   constructor(
     public dialog: MatDialog,
-    private courserService: CoursesService
+    private courserService: CoursesService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.courses$ = this.courserService.findAll().pipe(
       catchError(() => {
@@ -28,11 +31,15 @@ export class CoursesComponent {
     );
   }
 
+  displayedColumns = ['name', 'category', 'actions'];
+
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
       data: errorMsg,
     });
   }
 
-  displayedColumns = ['name', 'category'];
+  onAdd() {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
 }

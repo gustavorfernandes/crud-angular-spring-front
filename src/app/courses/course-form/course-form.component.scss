@@ -1,0 +1,23 @@
+mat-card {
+  border-radius: 4px;
+  margin: 2em auto;
+  max-width: 80%;
+  padding: 1rem;
+}
+
+mat-card-content {
+  padding: 0;
+}
+
+mat-card-actions {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}

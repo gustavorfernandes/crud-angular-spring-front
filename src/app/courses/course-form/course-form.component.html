@@ -4,11 +4,17 @@
   <mat-card-content>
     <form [formGroup]="form">
       <mat-form-field>
-        <input matInput placeholder="Nome" formControlName="name" />
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" />
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Categoria" formControlName="category" />
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="category">
+          <mat-option>Selecione uma opção</mat-option>
+          <mat-option value="Front-end">Front-end</mat-option>
+          <mat-option value="Back-end">Back-end</mat-option>
+        </mat-select>
       </mat-form-field>
     </form>
   </mat-card-content>

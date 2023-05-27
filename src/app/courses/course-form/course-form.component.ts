@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,6 +15,7 @@ export class CourseFormComponent {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private location: Location,
     private courserService: CoursesService,
     private snackBar: MatSnackBar
   ) {}
@@ -24,17 +26,22 @@ export class CourseFormComponent {
   });
 
   onCancel() {
-    this.router.navigate(['']);
+    this.location.back();
   }
 
   onSubmit() {
     this.courserService.create(this.form.value).subscribe({
-      next: (result) => console.log(result),
-      error: (error) => this.onError(),
+      next: () => this.onSuccess(),
+      error: () => this.onError(),
     });
   }
 
   private onError() {
     this.snackBar.open('Erro ao salvar curso.', '', { duration: 3000 });
+  }
+
+  private onSuccess() {
+    this.snackBar.open('Curso salvo com sucesso!', '', { duration: 3000 });
+    this.onCancel();
   }
 }

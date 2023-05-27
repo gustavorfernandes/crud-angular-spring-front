@@ -20,7 +20,7 @@ export class CoursesService {
     );
   }
 
-  create(payload: Course) {
+  create(payload: Partial<Course>) {
     return this.httpClient.post<Course>(this.API, payload).pipe(first());
   }
 }

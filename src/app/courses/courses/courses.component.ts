@@ -29,9 +29,7 @@ export class CoursesComponent {
         return of([]);
       })
     );
-  }
-
-  displayedColumns = ['name', 'category', 'actions'];
+  }  
 
   onError(errorMsg: string) {
     this.dialog.open(ErrorDialogComponent, {

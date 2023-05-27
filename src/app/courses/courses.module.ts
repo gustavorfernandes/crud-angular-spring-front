@@ -7,9 +7,10 @@ import { CourseFormComponent } from './course-form/course-form.component';
 import { CoursesRoutingModule } from './courses-routing.module';
 import { MaterialModule } from '../shared/imports/material/material.module';
 import { SharedModule } from '../shared/shared.module';
+import { CoursesListComponent } from './courses-list/courses-list.component';
 
 @NgModule({
-  declarations: [CoursesComponent, CourseFormComponent],
+  declarations: [CoursesComponent, CourseFormComponent, CoursesListComponent],
   imports: [
     CommonModule,
     CoursesRoutingModule,

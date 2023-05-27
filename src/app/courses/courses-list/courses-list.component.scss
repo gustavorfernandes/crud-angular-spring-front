@@ -1,0 +1,25 @@
+mat-table {
+  overflow: auto;
+  max-height: 37.5rem;
+  width: 100%;
+}
+
+mat-header-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.category-content {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actions-cell {
+  flex: 0 0 8rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.add-button {
+  margin-left: 1.75rem;
+}

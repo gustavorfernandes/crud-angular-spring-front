@@ -20,6 +20,10 @@ export class CoursesService {
     );
   }
 
+  findOneById(id: string) {
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
   create(payload: Partial<Course>) {
     return this.httpClient.post<Course>(this.API, payload).pipe(first());
   }

@@ -1,8 +1,10 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormGroup, NonNullableFormBuilder } from '@angular/forms';
+import { NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
+import { Course } from '../../model/course';
 import { CoursesService } from '../../services/courses.service';
 
 @Component({
@@ -15,10 +17,12 @@ export class CourseFormComponent {
     private formBuilder: NonNullableFormBuilder,
     private location: Location,
     private courserService: CoursesService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private route: ActivatedRoute
   ) {}
 
   form = this.formBuilder.group({
+    _id: [''],
     name: [''],
     category: [''],
   });
@@ -41,5 +45,10 @@ export class CourseFormComponent {
   private onSuccess() {
     this.snackBar.open('Curso salvo com sucesso!', '', { duration: 3000 });
     this.onCancel();
+  }
+
+  ngOnInit(): void {
+    const course: Course = this.route.snapshot.data['course'];
+    this.form.setValue(course);
   }
 }

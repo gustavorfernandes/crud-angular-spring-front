@@ -13,11 +13,7 @@ export class CoursesService {
   constructor(private httpClient: HttpClient) {}
 
   findAll() {
-    return this.httpClient.get<Course[]>(this.API).pipe(
-      first(),
-      delay(1000),
-      tap((courses) => console.log(courses))
-    );
+    return this.httpClient.get<Course[]>(this.API).pipe(first(), delay(1000));
   }
 
   findOneById(id: string) {

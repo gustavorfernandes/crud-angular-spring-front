@@ -32,7 +32,7 @@ export class CourseFormComponent {
   }
 
   onSubmit() {
-    this.courserService.create(this.form.value).subscribe({
+    this.courserService.save(this.form.value).subscribe({
       next: () => this.onSuccess(),
       error: () => this.onError(),
     });

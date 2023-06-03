@@ -30,6 +30,10 @@ export class CoursesService {
       .pipe(first());
   }
 
+  public delete(id: string) {
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
+
   save(payload: Partial<Course>) {
     if (payload._id) {
       return this.update(payload);
